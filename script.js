@@ -16,6 +16,16 @@ function writePassword() {
       allowSymbols: window.confirm("Can special characters and symbols be used?"),
       passwordLength: window.prompt("Please define passord length. (Must be bewtween 8 and 128 characters.)")
       }
+      
+
+      /*update this section to be a for loop it is only checking once..... must added in too large after that*/
+      if (passwordRequirements.passwordLength) {
+        passwordRequirements.passwordLength < 8;
+          passwordRequirements.passwordLength = window.prompt("Not acceptable length, please select between 8 and 128 characters.)")
+      }
+
+
+
   /*var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;*/
@@ -29,7 +39,7 @@ generateBtn.addEventListener("click", writePassword);
 
 /* Pseduo coding
 DONE -- Get buttom to on page to work
-prompt user for passLength
+DONE -- prompt user for critera and passLength
 Add logic to verify length is 8 to 128 long
 prompt user if should have
   lower case
