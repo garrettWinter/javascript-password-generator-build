@@ -1,6 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate"); /*create comments about what this does */
-var passwordDetails = writePassword(); /*create comments about what this does */
+
 
 /* Variables for possible Character sets  */
 var selectedChars;
@@ -28,12 +28,9 @@ function writePassword() {
     passwordLength: window.prompt("Please define password length. (Must be between 8 and 128 characters.)")
   }
 
-  while (passwordRequirements.passwordLength < 8 ){
-    passwordRequirements.passwordLength = window.prompt("Password is too short, please select a number between 8 and 128 characters.)");
-  }
-
-  while (passwordRequirements.passwordLength > 128 ){
-    passwordRequirements.passwordLength = window.prompt("Password is too long, please select a number between 8 and 128 characters.)");
+  while (passwordRequirements.passwordLength < 8 || passwordRequirements.passwordLength > 128 || isNaN(passwordRequirements.passwordLength)) {
+    passwordRequirements.passwordLength = window.alert("Does not meet passwork requirements, please try agian!")
+    return;
   }
 
   console.log("Written as part of writePassword Logic");
@@ -64,12 +61,28 @@ console.log(passwordRequirements.allowLowerCase);
     console.log("Added Chars:"+specialChar);
     selectedChars += specialChar;
   }
+/* Validation  */
+  while (selectedChars.length < 8 ){
+    window.confirm("Did not select any password requirements. Please try again!")
+    return;
+  }
 
-  console.log("Final Char Set:"+selectedChars)
+  console.log("Final Char Set:'"+selectedChars+"'")
 
-  /*var password = generatePassword();
+
+  /* Password generation */
+  var password = '';
+  
+  for (var index = 0; index < passwordRequirements.passwordLength; index++) {
+    var randomNumber = Math.floor(Math.random() * selectedChars.length);
+    var randomChar = selectedChars.charAt(randomNumber);
+        password += randomChar;
+        console.log(randomNumber)
+        console.log("Added Char: "+randomChar+" Password is now:"+password);
+  }
+
   var passwordText = document.querySelector("#password");
-  passwordText.value = password;*/
+  passwordText.value = password;
   return;
 }
 
@@ -78,9 +91,10 @@ DONE -- Get button to on page to work
 DONE -- prompt user for criteria and passLength
 DONE -- Add logic to verify length is 8 to 128 long
 DONE -- Assemble the char final char set
-Generate password
+DONE -- Generate password
+DONE -- Display password in an alert
 Need logic to ensure requirements about are met, if not should Reloop
-Display password in an alert
+DONE -- Need to validation if a non number is added to length
 
 Do we need to have error handling if all chars are selected no?
 
