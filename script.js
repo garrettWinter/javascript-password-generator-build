@@ -10,19 +10,33 @@ var passwordRequirements;
 // Write password to the #password input
 function writePassword() {
   var passwordRequirements = {  
-      allowLowerCase: window.confirm("Can lower case letters be used?"),
-      allowUpperCase: window.confirm("Can upper case letters be used?"),
-      allowNumbers: window.confirm("Can numbers be used?"),
-      allowSymbols: window.confirm("Can special characters and symbols be used?"),
-      passwordLength: window.prompt("Please define passord length. (Must be bewtween 8 and 128 characters.)")
-      }
-      
+    allowLowerCase: window.confirm("Can lower case letters be used?"),
+    allowUpperCase: window.confirm("Can upper case letters be used?"),
+    allowNumbers: window.confirm("Can numbers be used?"),
+    allowSymbols: window.confirm("Can special characters and symbols be used?"),
+    passwordLength: window.prompt("Please define passord length. (Must be bewtween 8 and 128 characters.)")
+  }
+  while (passwordRequirements.passwordLength < 8 ){
+    passwordRequirements.passwordLength = window.prompt("Password is too short, please select a number bewtween 8 and 128 characters.)");
+  }
+  while (passwordRequirements.passwordLength > 128 ){
+    passwordRequirements.passwordLength = window.prompt("Password is too long, please select a number bewtween 8 and 128 characters.)");
+  }
+   // for (let passwordRequirements.passwordLength < 8;) {
+  //   passwordRequirements.passwordLength = window.prompt("Password is too short, please select a number bewtween 8 and 128 characters.")
+     
+  //   }
 
+  //   for (let index = 0; index < array.length; index++) {
+      
+  //   }
+  
+  
       /*update this section to be a for loop it is only checking once..... must added in too large after that*/
-      if (passwordRequirements.passwordLength) {
-        passwordRequirements.passwordLength < 8;
-          passwordRequirements.passwordLength = window.prompt("Not acceptable length, please select between 8 and 128 characters.)")
-      }
+      // if (passwordRequirements.passwordLength) {
+      //   passwordRequirements.passwordLength < 8;
+      //     passwordRequirements.passwordLength = window.prompt("Not acceptable length, please select between 8 and 128 characters.)")
+      // }
 
 
 
