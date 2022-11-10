@@ -1,16 +1,11 @@
 // Assignment Code
-var generateBtn = document.querySelector("#generate"); /*create comments about what this does */
+var generateBtn = document.querySelector("#generate"); 
 var selectedChars;
 
-/*Created to resolve errors.... remove these if possible before submitting*/
-var generatePassword;
-var passwordText;
-var passwordRequirements;
-
-// Add event listener to generate button
+// Add event listener for button click
 generateBtn.addEventListener("click", writePassword);
 
-// Write password to the #password input
+// Password Generation Function
 function writePassword() {
   var lowerCase = "abcdefghijklmnopqrstuvwxyz";
   var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -25,14 +20,15 @@ function writePassword() {
     passwordLength: window.prompt("Please define password length. (Must be between 8 and 128 characters.)")
   }
 
+/* Password length validation along with confirming that user has selected a number for the password length.*/
   while (passwordRequirements.passwordLength < 8 || passwordRequirements.passwordLength > 128 || isNaN(passwordRequirements.passwordLength)) {
-    passwordRequirements.passwordLength = window.alert("Does not meet passwork requirements, please try agian!")
+    passwordRequirements.passwordLength = window.alert("Does not meet password requirements, please try again!")
     return;
   }
 
   console.log(passwordRequirements);
 
-/* If statments to build out the string of acceptable characters and seeds password with a value from character types*/
+/* If statements to build out the string of acceptable characters and seeds password with a value from character types to ensure each is present every time*/
 console.log(passwordRequirements.allowLowerCase);
 var tempPassword = '';
 console.log(tempPassword);
@@ -83,7 +79,9 @@ console.log(tempPassword);
 
 console.log(tempPassword.length);
 
+/* This puts the generated password into HTML to be displayed on the page.*/
   var passwordText = document.querySelector("#password");
   passwordText.value = tempPassword;
   return;
   }
+
