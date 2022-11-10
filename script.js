@@ -1,8 +1,5 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate"); /*create comments about what this does */
-
-
-/* Variables for possible Character sets  */
 var selectedChars;
 
 /*Created to resolve errors.... remove these if possible before submitting*/
@@ -33,69 +30,60 @@ function writePassword() {
     return;
   }
 
-  console.log("Written as part of writePassword Logic");
   console.log(passwordRequirements);
 
-/* If statments to build out the string of useable */
+/* If statments to build out the string of acceptable characters and seeds password with a value from character types*/
 console.log(passwordRequirements.allowLowerCase);
-  if (passwordRequirements.allowLowerCase == true) {
-    console.log("allowlowercaseworking="+passwordRequirements.allowLowerCase);
-    console.log("Added Chars:"+lowerCase);
+var tempPassword = '';
+console.log(tempPassword);
+  if (passwordRequirements.allowLowerCase === true) {
+    console.log("allowlowercaseworking="+passwordRequirements.allowLowerCase+" Added Chars:"+lowerCase);
     selectedChars += lowerCase;
+    tempPassword += lowerCase.charAt(Math.floor(Math.random() * lowerCase.length));
+    console.log("------"+tempPassword)
   }
 
-  if (passwordRequirements.allowUpperCase == true) {
-    console.log("allowUpperCase="+passwordRequirements.allowUpperCase);
-    console.log("Added Chars:"+upperCase);
+  if (passwordRequirements.allowUpperCase === true) {
+    console.log("allowUpperCase="+passwordRequirements.allowUpperCase+" Added Chars:"+upperCase);
     selectedChars += upperCase;
+    tempPassword += upperCase.charAt(Math.floor(Math.random() * upperCase.length));
+    console.log("------"+tempPassword)
   }
 
-  if (passwordRequirements.allowNumbers == true) {
-    console.log("allowNumbers="+passwordRequirements.allowNumbers);
-    console.log("Added Chars:"+numbers);
+  if (passwordRequirements.allowNumbers === true) {
+    console.log("allowNumbers="+passwordRequirements.allowNumbers+" Added Chars:"+numbers);
     selectedChars += numbers;
+    tempPassword += numbers.charAt(Math.floor(Math.random() * numbers.length));
+    console.log("------"+tempPassword)
   }
 
-  if (passwordRequirements.allowSymbols == true) {
-    console.log("allowSymbols="+passwordRequirements.allowSymbols);
-    console.log("Added Chars:"+specialChar);
+  if (passwordRequirements.allowSymbols === true) {
+    console.log("allowSymbols="+passwordRequirements.allowSymbols+" Added Chars:"+specialChar);
     selectedChars += specialChar;
+    tempPassword += specialChar.charAt(Math.floor(Math.random() * specialChar.length));
+    console.log("------"+tempPassword)
   }
-/* Validation  */
+/* Validation  that the user has selected at least 1 character set*/
   while (selectedChars.length < 8 ){
     window.confirm("Did not select any password requirements. Please try again!")
     return;
   }
-
   console.log("Final Char Set:'"+selectedChars+"'")
 
+  /* Password generation Continued*/
 
-  /* Password generation */
-  var password = '';
-  
-  for (var index = 0; index < passwordRequirements.passwordLength; index++) {
-    var randomNumber = Math.floor(Math.random() * selectedChars.length);
-    var randomChar = selectedChars.charAt(randomNumber);
-        password += randomChar;
-        console.log(randomNumber)
-        console.log("Added Char: "+randomChar+" Password is now:"+password);
+  var tempPasswordLength = tempPassword.length
+  console.log("tempPasswordLength: "+tempPasswordLength)
+  for (var index = 0; index < (passwordRequirements.passwordLength-tempPasswordLength); index++) {
+    var tempRandomNumber = Math.floor(Math.random() * selectedChars.length);
+    var tempRandomChar = selectedChars.charAt(tempRandomNumber);
+    tempPassword += tempRandomChar;
+        console.log("tempRandomNumber: " + tempRandomNumber+", Added Char: "+tempRandomChar+", tempPassword is now: "+tempPassword);
   }
 
+console.log(tempPassword.length);
+
   var passwordText = document.querySelector("#password");
-  passwordText.value = password;
+  passwordText.value = tempPassword;
   return;
-}
-
-/* Pseudo coding
-DONE -- Get button to on page to work
-DONE -- prompt user for criteria and passLength
-DONE -- Add logic to verify length is 8 to 128 long
-DONE -- Assemble the char final char set
-DONE -- Generate password
-DONE -- Display password in an alert
-Need logic to ensure requirements about are met, if not should Reloop
-DONE -- Need to validation if a non number is added to length
-
-Do we need to have error handling if all chars are selected no?
-
-*/
+  }
