@@ -5,7 +5,7 @@
 Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
 
 - What was your motivation?
-    - To showcase that I have a strong understanding enough understanding of JavaScript to be able to develop a password generator based on some user prompts on their requirements.
+    - To showcase that I have a strong understanding of JavaScript to be able to develop a password generator based on some user prompts on their requirements.
 - What did you learn?
     - My working knowledge of the below loops has improved dramatically.
         - For loops
@@ -25,7 +25,7 @@ If your README is long, add a table of contents to make it easy for users to fin
 
 ## Usage
 
-- You can navigate this page and follow the links to see demonstrations that I Garrett Winter are able to accomplish as a full stack developer.
+- You can navigate this page and follow the links to see demonstrations that I Garrett Winter is able to accomplish as a full stack developer.
 
     - This webpage can be viewed by following the below link:
         - https://garrettwinter.github.io/javascript-password-generator-build/
