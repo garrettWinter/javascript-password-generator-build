@@ -29,9 +29,9 @@ function writePassword() {
   console.log(passwordRequirements);
 
 /* If statements to build out the string of acceptable characters and seeds password with a value from character types to ensure each is present every time*/
-console.log(passwordRequirements.allowLowerCase);
-var tempPassword = '';
-console.log(tempPassword);
+  console.log(passwordRequirements.allowLowerCase);
+  var tempPassword = '';
+  console.log(tempPassword);
   if (passwordRequirements.allowLowerCase === true) {
     console.log("allowlowercaseworking="+passwordRequirements.allowLowerCase+" Added Chars:"+lowerCase);
     selectedChars += lowerCase;
@@ -66,7 +66,7 @@ console.log(tempPassword);
   }
   console.log("Final Char Set:'"+selectedChars+"'")
 
-  /* Password generation Continued*/
+  /* Password generation*/
 
   var tempPasswordLength = tempPassword.length
   console.log("tempPasswordLength: "+tempPasswordLength)
@@ -77,11 +77,11 @@ console.log(tempPassword);
         console.log("tempRandomNumber: " + tempRandomNumber+", Added Char: "+tempRandomChar+", tempPassword is now: "+tempPassword);
   }
 
-console.log(tempPassword.length);
+  console.log(tempPassword.length);
 
 /* This puts the generated password into HTML to be displayed on the page.*/
   var passwordText = document.querySelector("#password");
   passwordText.value = tempPassword;
   return;
-  }
+}
 
